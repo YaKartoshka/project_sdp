@@ -72,20 +72,26 @@ app.use(cookieParser());
   const email = req.body.email;
   const password = req.body.password;
   const username=req.body.username;
-  
+  const company=await fdb.collection('users');
+  const company_qS=company.get();
   var data={
     email:email,
     username:username
   }
   auth.createUserWithEmailAndPassword(fauth,email,password)
-  .then((userCredential) => {
+  .then(async(userCredential) => {
      session=req.session;
      session.email=email;  
      
      usersManager.strategy=user;
      usersManager.addUser(data);
      
-
+    (await company_qS).forEach(doc=>{
+      if(doc.data().email==email){
+          id=doc.id;
+      }
+  });
+     res.cookie('fid',`${id}`);
      res.sendFile(path.join(__dirname + '/views/index.html'));
    })
    .catch((error) => {
@@ -96,6 +102,41 @@ app.use(cookieParser());
  
 
 });
+
+app.post('/addStory',async(req,res)=>{
+  const {story_content,story_title}=req.body;
+  const author_id=req.cookies["fid"];
+  const users=fdb.collection('users');
+  const users_qS=await users.get();
+  var author_email;
+  var username;
+  users_qS.forEach(doc=>{
+    if(doc.id==author_id){
+     author_email=doc.data().email;
+     username=doc.data().username;
+    }
+  })
+    console.log(author_email,username)
+
+  var data={
+    author_email:author_email,
+    username:username,
+    story_content:story_content,
+    story_title:story_title
+  }
+  
+  const new_story=await fdb.collection('stories').add(data);
+  res.sendFile(path.join(__dirname+'/views/index.html'));
+
+});
+
+app.get('/addStory',(req,res)=>{
+  if(fauth.currentUser!==null){
+    res.sendFile(path.join(__dirname+'/views/addStory.html'))
+  }else{
+    res.redirect('/')
+  }
+})
 
 app.get('/signUp',(req,res)=>{
   

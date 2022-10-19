@@ -24,7 +24,7 @@ let UsersManager = class  {
 let User = class {
     async addUser(data){
         var new_user=await fdb.collection('users').add(data);
-        document.cookie = encodeURIComponent(user_fid) + '=' + encodeURIComponent(new_user.id);
+        
     }
     async addStory(story_data){
         var new_story=await fdb.collection('users').doc(`${story_data.fid}`).collection('stories').add(story_data);

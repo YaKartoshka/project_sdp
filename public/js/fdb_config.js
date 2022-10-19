@@ -1,4 +1,4 @@
-console.log('started');
+
 const firebaseConfig = {
   apiKey: "AIzaSyBju-4uk4RN6Rqd_UQh9dVL6UfFSx1hKFU",
   authDomain: "sdp-project-c1402.firebaseapp.com",

@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background:#d5dcf4;
+    font-family: 'Roboto', sans-serif;
+}
+.main{
+    padding: 50px;
+}
+.counter_block{
+    display: flex;
+    justify-content: start;
+    font-size: 20px;
+}
+.counter{
+    margin-right: 20px;
+}
