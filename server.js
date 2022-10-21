@@ -47,9 +47,9 @@ app.use(cookieParser());
   
   session=req.session;
   session.email=email
-  const company=await fdb.collection('users');
-  const company_qS=company.get();
-  (await company_qS).forEach(doc=>{
+  const company=fdb.collection('users');
+  const company_qS=await company.get();
+  company_qS.forEach(doc=>{
       if(doc.data().email==email){
           id=doc.id;
       }
@@ -57,7 +57,7 @@ app.use(cookieParser());
 
 
   res.cookie('fid',`${id}`);
-  res.redirect('/index');
+  res.sendFile(path.join(__dirname + '/views/index.html'));
  })
   .catch((error) => {
   
@@ -72,8 +72,8 @@ app.use(cookieParser());
   const email = req.body.email;
   const password = req.body.password;
   const username=req.body.username;
-  const company=await fdb.collection('users');
-  const company_qS=company.get();
+  const company= fdb.collection('users');
+  const company_qS=await company.get();
   var data={
     email:email,
     username:username
@@ -86,7 +86,7 @@ app.use(cookieParser());
      usersManager.strategy=user;
      usersManager.addUser(data);
      
-    (await company_qS).forEach(doc=>{
+     company_qS.forEach(doc=>{
       if(doc.data().email==email){
           id=doc.id;
       }
