@@ -13,15 +13,24 @@
     <form action="/addStory" method="post">
         <div class="mb-3 mt-3">
           <label for="comment">Add a story:</label>
-          <input type="text" class="form-control form-control-lg" name="story_title"placeholder="Title">
+          <input type="text" class="form-control form-control-lg" id='title' name="story_title" placeholder="Title">
           <br>
-          <textarea class="form-control content" rows="5" id="comment" name="story_content"></textarea>
+          <textarea class="form-control content" rows="5" id="content" name="story_content"></textarea>
           <div class="counter_block"><p class='counter'>0</p><p>words</p> </div>
-          
+          <select id="categories" onchange="remove(),showStoriesByCategory()">
+            <option class="option" value="Fantasy">Fantasy</option>
+            <option class="option" value="Romance">Romance</option>
+            <option class="option" value="Comedy">Comedy</option>
+            <option class="option" value="Horror">Horror</option>
+            <option class="option" value="Mystery">Mystery</option>         
+        </select> 
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="addBtn" onclick="addStory()" class="btn btn-primary">Submit</button>
       </form>
     </div>
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+      <script src="/public/js/fdb_config.js" id="MainScript"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
       <script src="/public/js/addStory.js"></script>
 </body>

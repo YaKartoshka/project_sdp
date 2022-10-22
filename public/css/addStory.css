@@ -18,3 +18,24 @@ body{
 .counter{
     margin-right: 20px;
 }
+.div_categories{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    
+    appearance: none;
+       
+    background-color: transparent;
+    border: none;
+   
+    outline: invert;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+      
+}
+
+#categories{
+    width: 300px;
+}

@@ -1,6 +1,6 @@
 var stories_list=document.querySelector(".stories");
 
-async function showStories(){
+async function showAllStories(){
     console.log('start')
    const stories = fdb.collection('stories');
    const stories_qS=await stories.get();
@@ -29,7 +29,14 @@ async function showStories(){
     
    });
 }
-showStories();
+showAllStories();
+
+async function showStoriesByCategory(){
+  var select = document.getElementById('categories');
+  var selected_category =await select.options[select.selectedIndex].text;
+  console.log(selected_category)
+}
+
 function removeStories(){
      var cards = document.querySelectorAll('.story');
     cards.forEach(card=>{
@@ -60,7 +67,7 @@ const storyObserver = new Observer();
 
 storyObserver.subscribe(()=>{
      removeStories();
-     showStories();
+     showAllStories();
 });
 
 fdb.collection('stories').onSnapshot(doc=>{
