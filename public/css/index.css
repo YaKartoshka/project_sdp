@@ -7,6 +7,12 @@ body{
     background:#d5dcf4;
     font-family: 'Roboto', sans-serif;
 }
+#navbar{
+    font-size: 1.5rem;
+}
+.nav-item{
+    margin-left: 2rem;
+}
 .main{
     width: 100%;
     height: 100vh;

@@ -120,6 +120,22 @@ app.get('/addStory',(req,res)=>{
   }
 })
 
+app.get('/myProfile',(req,res)=>{
+  if(fauth.currentUser!==null){
+    res.sendFile(path.join(__dirname+'/views/myProfile.html'))
+  }else{
+    res.redirect('/');
+  }
+});
+
+app.get('/editProfile',(req,res)=>{
+  if(fauth.currentUser!==null){
+    res.sendFile(path.join(__dirname+'/views/editProfile.html'));
+  }else{
+    res.redirect('/')
+  }
+})
+
 app.get('/signUp',(req,res)=>{
   
   res.sendFile(path.join(__dirname+'/views/signUp.html'));
