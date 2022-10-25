@@ -39,3 +39,7 @@ body{
 #categories{
     width: 300px;
 }
+#add_link{
+    color: white;
+    text-decoration: none;
+}

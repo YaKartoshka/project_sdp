@@ -9,12 +9,13 @@ async function showProfile(){
     var card_text_city=document.getElementById('card-text-city');
     var fid=getCookie('fid');
 
-    const users=fdb.collection('users');
-    const users_qS=await users.get()
+    var users=fdb.collection('users');
+    
 
     var username;
     var author_email;
     var city;
+    var users_qS=await users.get(); 
     users_qS.forEach(doc=>{
         if(doc.id==fid){
         author_email=doc.data().email;
@@ -25,7 +26,7 @@ async function showProfile(){
     if(city!=undefined){
         card_text_city.innerHTML=city;
     }
-    console.log(author_email.username)
+    console.log(author_email,username,city)
     card_title.innerHTML=`Username : ${username}`;
     card_text.innerHTML=`Your email: ${author_email}`
     

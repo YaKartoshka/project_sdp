@@ -72,8 +72,7 @@ app.use(cookieParser());
   const email = req.body.email;
   const password = req.body.password;
   const username=req.body.username;
-  const company= fdb.collection('users');
-  const company_qS=await company.get();
+  
   var data={
     email:email,
     username:username
@@ -84,20 +83,23 @@ app.use(cookieParser());
      session.email=email;  
      
      usersManager.strategy=user;
-     usersManager.addUser(data);
-     
+     var id=usersManager.addUser(data);
+     console.log(id)
+     const company=fdb.collection('users');
+     const company_qS=await company.get();
      company_qS.forEach(doc=>{
-      if(doc.data().email==email){
-          id=doc.id;
-      }
-  });
+         if(doc.data().email==email){
+             id=doc.id;
+         }
+        
+     });
      res.cookie('fid',`${id}`);
      res.sendFile(path.join(__dirname + '/views/index.html'));
    })
    .catch((error) => {
      var errorCode = error.code;
      var errorMessage = error.message;
-     res.send(error)
+     res.send('error')
    });
  
 

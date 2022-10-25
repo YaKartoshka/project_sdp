@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="main">
-    <form action="/addStory" method="post">
+    <form>
         <div class="mb-3 mt-3">
           <label for="comment">Add a story:</label>
           <input type="text" class="form-control form-control-lg" id='title' name="story_title" placeholder="Title">
@@ -23,9 +23,10 @@
             <option class="option" value="Comedy">Comedy</option>
             <option class="option" value="Horror">Horror</option>
             <option class="option" value="Mystery">Mystery</option>         
-        </select> 
+          </select> 
         </div>
-        <button type="button" id="addBtn" onclick="addStory()" class="btn btn-primary">Submit</button>
+        <button type="button" id="addBtn" onclick="addStory()" class="btn btn-primary">Add a Story</button>
+        <button type="button" class="btn btn-primary"><a id="add_link" href="/index" >Back</a></button>
       </form>
     </div>
       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>

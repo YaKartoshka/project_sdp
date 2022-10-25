@@ -30,10 +30,20 @@ textField.addEventListener('keyup', () => {
 
 const getWordsCount = text =>
   text ? text.trim().split(/\s+/).length : 0
+
+
+
+const createStory = ({ story_title, story_content, username, author_email, category }) => ({
+  story_title,
+  story_content,
+  username,
+  author_email,
+  category
   
+});
 
 async function addStory(){
-  
+  console.log('started')
   var title=document.getElementById('title').value;
   var content=document.getElementById('content').value;
   var select = document.getElementById('categories');
@@ -50,18 +60,24 @@ async function addStory(){
      username=doc.data().username;
     }
   })
-
-  var data = {
-    story_title:title,
-    story_content:content,
+  
+  
+  const data = createStory({
+    story_title: title,
+    story_content: content,
     username:username,
     author_email:author_email,
     category:selected_category
-  }
+  });
   
+  console.log(data)
   const new_story= await fdb.collection('stories').add(data);
-
+  document.getElementById('title').value="";
+  document.getElementById('content').value="";
 }
+
+
+
 
 
 function getCookie(name) {

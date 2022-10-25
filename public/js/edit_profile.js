@@ -4,14 +4,16 @@ async function initializeFDB(){
  
 
     const users=fdb.collection('users');
-    const users_qS=await users.get();
+    users.onSnapshot(users_qS=>{
+        users_qS.forEach(doc=>{
+            if(doc.id==fid){
+                username=doc.data().username;
+                console.log(username)
+            }
+        });
+    })
 
-    users_qS.forEach(doc=>{
-        if(doc.id==fid){
-            username=doc.data().username;
-            
-        }
-    });
+   
 
 }
 
@@ -35,20 +37,22 @@ class DecoratedUser {
         this.city = city;
 
         this.edit = async function () {
+            console.log(this.user,this.new_name,this.city)
             var edit_user = await fdb.collection('users').doc(`${fid}`).update({
                 username: this.new_name,
                 city:this.city
               });
+              window.location.href = '/myProfile';
              
         };
     }
 }
 
-function editProfile(){
+async function editProfile(){
     var new_name=document.getElementById('new_name').value;
     var city = document.getElementById('city').value;
     var decorated_user = new DecoratedUser(user, new_name, city);
-    decorated_user.edit();
+    await decorated_user.edit();
 }
 
 
@@ -58,8 +62,7 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
-
+initializeFDB();
 var user = new User(username);
 user.edit();
 
-initializeFDB();
