@@ -14,17 +14,21 @@ async function showAllStories(){
         var newText = document.createElement("p");
         var newTitle = document.createElement("div");
         var newAuthor = document.createElement("div");
+        var line1=document.createElement("hr");
+        var line2=document.createElement("hr");
         newDiv.classList.add('container-lg')
         newDiv.classList.add('story')
         newDiv.classList.add('bg-primary');
         newDiv.id = doc.id;
+        line1.id="line";
+        line2.id="line";
         newText.classList.add('story_content');
         newTitle.classList.add('story_title');
         newAuthor.classList.add('story_author');
         newText.innerHTML = story_text;
         newAuthor.innerHTML = author;
         newTitle.innerHTML = story_title
-        newDiv.innerHTML = newTitle.outerHTML + newText.outerHTML + newAuthor.outerHTML;
+        newDiv.innerHTML = newTitle.outerHTML+line2.outerHTML + newText.outerHTML+line1.outerHTML + newAuthor.outerHTML;
         stories_list.insertAdjacentElement('afterbegin',newDiv);
     
    });

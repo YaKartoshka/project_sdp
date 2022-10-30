@@ -24,9 +24,6 @@ let UsersManager = class  {
 let User = class {
     async addUser(data){
         var new_user=await fdb.collection('users').add(data);
-        console.log(new_user.id)
-        var id=new_user.id
-        return id;
         
     }
     async addStory(story_data){

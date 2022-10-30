@@ -3,10 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
     background:#d5dcf4;
     font-family: 'Roboto', sans-serif;
 }
+#navbar{
+    font-size: 1.5rem;
+}
+.nav-item{
+    margin-left: 2rem;
+}
+.navbar-nav{
+display: flex;
+align-items: center ;
+}
+
 #edit_div{
     margin: 15rem;
 }

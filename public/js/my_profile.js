@@ -67,6 +67,10 @@ async function showMyStories(){
         var newDel = document.createElement("div");
         var btnClose = document.createElement("button");    
         var newLink = document.createElement("a");
+        var line1=document.createElement("hr");
+        var line2=document.createElement("hr");
+        line1.id="line";
+        line2.id="line";
         btnClose.classList.add('delbtn');
         btnClose.id = 'remove';    
         newDiv.classList.add('container-lg')
@@ -86,7 +90,7 @@ async function showMyStories(){
         newDel.innerHTML = btnClose.outerHTML;
         newAuthor.innerHTML = author;
         newTitle.innerHTML = story_title
-        newDiv.innerHTML = newTitle.outerHTML + newText.outerHTML + newAuthor.outerHTML+newDel.outerHTML;
+        newDiv.innerHTML = newDel.outerHTML+newTitle.outerHTML+line1.outerHTML + newText.outerHTML +line2.outerHTML + newAuthor.outerHTML;
         stories_list.insertAdjacentElement('afterbegin',newDiv);
         $('.story').on("click", function () {
             delId = ($(this).attr('id'));

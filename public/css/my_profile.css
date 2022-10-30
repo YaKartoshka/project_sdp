@@ -8,6 +8,17 @@ body{
     background:#d5dcf4;
     font-family: 'Roboto', sans-serif;
 }
+#navbar{
+    font-size: 1.5rem;
+}
+.nav-item{
+    margin-left: 2rem;
+}
+.navbar-nav{
+display: flex;
+align-items: center ;
+}
+
 .card{
     margin: 5rem;
 }
@@ -27,13 +38,15 @@ body{
 .story{
     margin-top: 5rem;
     margin-bottom: 2rem;
+    padding: auto;
+    border-radius: 20px;
     
 }
 .story_title{
-    margin-top: 2rem;
     text-align: center;
     font-size: 4rem;
     color: white;
+    padding-top: 2rem;
 }
 .story_content{
     font-size: 2rem;
@@ -43,6 +56,16 @@ body{
 .story_author{
     font-size: 1rem;
     text-align: center;
+    padding-bottom: 2rem;
+}
+#line{
+    margin: -30px auto 10px;
+	padding: 0;
+	height: 50px;
+	border: none;
+	border-bottom: 1px solid #1f1209;
+	box-shadow: 0 20px 20px -20px #333;
+	width: 95%;
 }
 #editBtn{
     margin-bottom: 1rem;
@@ -50,8 +73,9 @@ body{
 
 .delete {
     display: flex;
-    color: white;
-    margin-left: auto;
+    
+    margin-left: 1rem;
+    margin-top: 1rem;
   }
   
   .delete button {

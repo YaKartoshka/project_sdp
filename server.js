@@ -83,8 +83,8 @@ app.use(cookieParser());
      session.email=email;  
      
      usersManager.strategy=user;
-     var id=usersManager.addUser(data);
-     console.log(id)
+     usersManager.addUser(data);
+    
      const company=fdb.collection('users');
      const company_qS=await company.get();
      company_qS.forEach(doc=>{
@@ -93,13 +93,14 @@ app.use(cookieParser());
          }
         
      });
+     console.log(id)
      res.cookie('fid',`${id}`);
      res.sendFile(path.join(__dirname + '/views/index.html'));
    })
    .catch((error) => {
      var errorCode = error.code;
      var errorMessage = error.message;
-     res.send('error')
+     res.send(error.message)
    });
  
 

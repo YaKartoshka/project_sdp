@@ -24,14 +24,16 @@ body{
 }
 
 .form-box{
-    width: 380px;
-    height: 515px;
+    width: 450px;
+    height: 750px;
     position: relative;
     margin: auto auto;
     background: #fff;
-    padding: 5px;
     overflow: hidden;
     border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .button-box{
