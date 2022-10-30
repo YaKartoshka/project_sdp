@@ -57,11 +57,11 @@ align-items: center ;
     
 }
 .story_title{
-    text-align: start;
+    text-align: center;
     font-size: 4rem;
     color: white;
     padding-top: 2rem;
-    margin-left: 3rem;
+   
 }
 .story_content{
     font-size: 2rem;

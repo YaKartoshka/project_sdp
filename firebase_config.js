@@ -13,12 +13,12 @@ const firebaseConfig = {
 
 
 const FirebaseConfig = {
-  start: () => firebase.initializeApp(firebaseConfig)
+  connect: () => firebase.initializeApp(firebaseConfig)
 }
 
 
 Object.freeze(FirebaseConfig)
 
-FirebaseConfig.start(); 
+FirebaseConfig.connect(); 
 
 module.exports=firebase; 
