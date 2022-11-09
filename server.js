@@ -42,11 +42,10 @@ app.use(cookieParser());
   const email=req.body.email;
   const password=req.body.password;
   var id;
+  console.log(email,password)
   auth.signInWithEmailAndPassword(fauth,email, password)
   .then(async(userCredential) => {
   
-  session=req.session;
-  session.email=email
   const company=fdb.collection('users');
   const company_qS=await company.get();
   company_qS.forEach(doc=>{
@@ -77,11 +76,10 @@ app.use(cookieParser());
     email:email,
     username:username
   }
+  console.log(data);
   auth.createUserWithEmailAndPassword(fauth,email,password)
   .then(async(userCredential) => {
-     session=req.session;
-     session.email=email;  
-     
+ 
      usersManager.strategy=user;
      usersManager.addUser(data);
     

@@ -14,7 +14,7 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/public/css/signIn.css">
-    <title>SignUp</title>
+    <title>SignIn</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         
             <div class="formBx">
                 <img src="/public/images/fabula.png" width="400px"alt="">
-                <form class="form" action="/signIn" method="post" onsubmit="getData()">
+                <form class="form" action="/signIn" method="post">
                    
                     <div class="inputdiv">
                         <p class="text">Логин</p>
@@ -33,9 +33,9 @@
                         <input class="input" type="password" name="password" placeholder="Введите пароль">
                     </div>
                     <div class="remember">
-                        <label><input id="check" type="checkbox" name=""><p>Запомнить меня</p></label>
+                        <label><input id="check" type="checkbox"><p>Запомнить меня</p></label>
                     </div>
-                    <button onclick="document.location='#'" class="signbtn">Войти</button>
+                    <button onclick="document.location='#'" class="signbtn" type="submit">Войти</button>
                     <div class="no-account">
                         <p>Нет аккаунта?</p>
                         <a href="signUp">Регистрация</a>
