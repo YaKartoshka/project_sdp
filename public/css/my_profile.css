@@ -5,7 +5,8 @@
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
-    background:#d5dcf4;
+    background-image: url("https://img.freepik.com/free-photo/white-simple-textured-design-background_53876-106174.jpg?w=996&t=st=1667990197~exp=1667990797~hmac=46c95dd563b84522ba91b03a216af49d5ea6f07871f02bfa9a57179842c736e9");
+
     font-family: 'Roboto', sans-serif;
 }
 #navbar{
@@ -18,15 +19,18 @@ body{
 display: flex;
 align-items: center ;
 }
-
+#main_section{
+    display: flex;
+}
 .card{
     margin: 5rem;
+    width: 300px;
 }
 .myStories_p{
     margin-left: 5rem;
 }
 .my_stories{
-    margin-left: 5rem;
+    width: 60rem;
     display: flex;
     flex-wrap: wrap;
     align-content: start;
@@ -38,7 +42,7 @@ align-items: center ;
 .story{
     margin-top: 5rem;
     margin-bottom: 2rem;
-    padding: auto;
+    
     border-radius: 20px;
     
 }

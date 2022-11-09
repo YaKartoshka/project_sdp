@@ -31,7 +31,8 @@
       </ul>
     </div>
   </nav>
-    <div class="card" style="width:400px">
+  <div id="main_section">
+    <div class="card">
         <img class="card-img-top" src="/public/images/avatar.png" alt="Card image" style="width:100%">
         <div class="card-body">
           <h4 class="card-title" id="card-title"></h4>
@@ -41,9 +42,12 @@
           <a href="/editProfile" class="btn btn-primary">Edit Profile</a>
         </div>
       </div>
-      
+      <div>
+        <br><br><br>
       <h2 class="myStories_p">My stories:</h2>
       <div class="my_stories"></div>
+      </div>
+    </div>
       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
       <script src="/public/js/fdb_config.js" id="MainScript"></script>
